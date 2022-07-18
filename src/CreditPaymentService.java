@@ -1,11 +1,9 @@
 public class CreditPaymentService {
-    public int calculate(int a, int b, float c) {
-        float d = c / (100 * 12);
-        float e;
-        float f = 1 + d;
-        int g = -1 * b;
-        e = (float) Math.pow(f, g);
-        int result = (int) (a * (d / (1 - e)));
+    public int calculate(int creditAmount, int period, float CreditRate) {
+        float monthlyInterestRate = CreditRate / (100 * 12);
+        float exponentiationFormula;
+        exponentiationFormula = (float) Math.pow(1 + monthlyInterestRate, -1 * period);
+        int result = (int) (creditAmount * (monthlyInterestRate / (1 - exponentiationFormula)));
         return result;
     }
 }
